@@ -26,8 +26,8 @@ module.exports = {
     'react/forbid-prop-types': 'off',
     'react/jsx-props-no-spreading': 'off',
     'react/jsx-indent': 'off',
-    '@typescript-eslint/no-explicit-any': ['error'],
-    '@typescript-eslint/no-use-before-define': ['error'],
+    '@typescript-eslint/no-explicit-any': ['warn'],
+    '@typescript-eslint/no-use-before-define': ['warn'],
     '@typescript-eslint/camelcase': 'off',
     '@typescript-eslint/explicit-function-return-type': [
       'warn',

@@ -48,4 +48,5 @@ export const Button = styled.button<ButtonProps>`
   color: #333;
   display: ${({ isFullWidth }) => (isFullWidth ? 'block' : 'inline-flex')};
   background-color: ${({ variant }) => getButtonColor(variant as ButtonVariants)};
+  pointer-events: ${({ isDisabled }) => (isDisabled ? 'none' : 'auto')};
 `;

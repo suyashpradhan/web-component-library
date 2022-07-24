@@ -21,7 +21,7 @@ module.exports = {
     'no-tabs': 'off',
     'no-unused-expressions': 'off',
     'space-before-function-paren': 'off',
-    'no-console': 'error',
+    'no-console': 'warn',
     'no-use-before-define': 'off',
     'react/forbid-prop-types': 'off',
     'react/jsx-props-no-spreading': 'off',

@@ -1,49 +1,11 @@
 import React from 'react';
+import { ButtonProps } from '../components/Button/types';
 import './button.css';
-
-interface ButtonProps {
-  /**
-   * Is this the principal call to action on the page?
-   */
-  primary?: boolean;
-  /**
-   * What background color to use
-   */
-  backgroundColor?: string;
-  /**
-   * How large should the button be?
-   */
-  size?: 'small' | 'medium' | 'large';
-  /**
-   * Button contents
-   */
-  label: string;
-  /**
-   * Optional click handler
-   */
-  onClick?: () => void;
-}
 
 /**
  * Primary UI component for user interaction
  */
 // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-export function Button({
-  primary = false,
-  size = 'medium',
-  backgroundColor,
-  label,
-  ...props
-}: ButtonProps) {
-  const mode = primary ? 'storybook-button--primary' : 'storybook-button--secondary';
-  return (
-    <button
-      type="button"
-      className={['storybook-button', `storybook-button--${size}`, mode].join(' ')}
-      style={{ backgroundColor }}
-      {...props}
-    >
-      {label}
-    </button>
-  );
+export function Button({ ...props }: ButtonProps) {
+  return <button type="button">{props.children}</button>;
 }

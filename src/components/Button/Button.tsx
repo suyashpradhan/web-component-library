@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { theme } from '../../themes/theme';
 import { ButtonProps, ButtonSizes, ButtonVariants } from './types';
 
 const getButtonSize = (buttonSize: ButtonSizes): string => {
@@ -13,22 +14,22 @@ const getButtonSize = (buttonSize: ButtonSizes): string => {
       return '6px 20px';
 
     default:
-      return '0 25px';
+      return '12px 24px';
   }
 };
 
 const getButtonColor = (buttonColor: ButtonVariants): string => {
   switch (buttonColor) {
     case 'solid':
-      return '#256eff';
+      return theme.colors.blue[200];
 
-    case 'soft':
-      return '#145eff';
+    case 'ghost':
+      return 'transparent';
 
     case 'outline':
-      return '#245eff';
+      return 'transparent';
 
-    case 'plain':
+    case 'link':
       return 'transparent';
 
     default:
@@ -36,17 +37,38 @@ const getButtonColor = (buttonColor: ButtonVariants): string => {
   }
 };
 
-export const Button = styled.button<ButtonProps>`
-  display: inline-block;
+const getButtonBorderColor = (buttonColor: ButtonVariants): string => {
+  switch (buttonColor) {
+    case 'solid':
+      return theme.colors.blue[200];
+
+    case 'outline':
+      return theme.colors.blue[200];
+
+    case 'ghost':
+      return 'transparent';
+
+    case 'link':
+      return 'transparent';
+
+    default:
+      return '';
+  }
+};
+
+export const ButtonGlobalStyles = styled.button<ButtonProps>`
   border-radius: 0.2rem;
-  padding: ${({ size }) => getButtonSize(size as ButtonSizes)};
   font-size: 1rem;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
   border: none;
   outline: none;
-  color: #333;
+  padding: ${({ size }) => getButtonSize(size as ButtonSizes)};
   display: ${({ isFullWidth }) => (isFullWidth ? 'block' : 'inline-flex')};
-  background-color: ${({ variant }) => getButtonColor(variant as ButtonVariants)};
   pointer-events: ${({ isDisabled }) => (isDisabled ? 'none' : 'auto')};
+`;
+
+export const Button = styled(ButtonGlobalStyles)<ButtonProps>`
+  background-color: ${({ variant }) => getButtonColor(variant as ButtonVariants)};
+  border: ${({ variant }) => `1px solid ${getButtonBorderColor(variant as ButtonVariants)}`};
 `;

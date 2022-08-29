@@ -1,6 +1,6 @@
 import React from 'react';
 
-export type ButtonVariants = 'solid' | 'soft' | 'outline' | 'plain';
+export type ButtonVariants = 'solid' | 'ghost' | 'outline' | 'link';
 
 export type ButtonSizes = 'small' | 'medium' | 'large';
 
